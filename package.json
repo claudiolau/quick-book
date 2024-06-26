@@ -1,24 +1,29 @@
 {
-  "name": "quick-book",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "react": "^18",
-    "react-dom": "^18",
-    "next": "14.2.4"
-  },
-  "devDependencies": {
-    "typescript": "^5",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1"
-  }
+	"name": "quick-book",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint",
+		"format": "pnpm biome format --write ./src/"
+	},
+	"dependencies": {
+		"@aws-amplify/ui-react": "^6.1.12",
+		"aws-amplify": "^6.3.8",
+		"next": "14.2.4",
+		"next-auth": "^4.24.7",
+		"react": "^18",
+		"react-dom": "^18"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.8.2",
+		"@types/node": "^20",
+		"@types/react": "^18",
+		"@types/react-dom": "^18",
+		"postcss": "^8",
+		"tailwindcss": "^3.4.1",
+		"typescript": "^5"
+	}
 }
