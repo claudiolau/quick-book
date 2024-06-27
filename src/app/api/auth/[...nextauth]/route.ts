@@ -11,9 +11,9 @@ const handler = NextAuth({
 			clientSecret: process.env.GITHUB_SECRET as string,
 		}),
 		CognitoProvider({
-			clientId: '5p8tp2s09i908k3tbdmfsv12m4',
-			clientSecret: 'qlu6puecb0cncd71pfgt4jmibo7tl9n5keo1rqqv4ri0jnj9ib0',
-			issuer: 'https://cognito-idp.us-east-1.amazonaws.com/us-east-1_Nn01iIPpW',
+			clientId: process.env.NEXT_PUBLIC_AWS_COGNITO_APP_CLIENT_ID,
+			clientSecret: process.env.NEXT_PUBLIC_AWS_COGNITO_APP_CLIENT_SECRET,
+			issuer: process.env.NEXT_PUBLIC_AWS_COGNITO_ISSUER,
 		}),
 	],
 	debug: true, // Enable debug mode
