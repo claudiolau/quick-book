@@ -1,17 +1,12 @@
-// mark as client component
 "use client";
 
-// importing necessary functions
 import { useSession, signIn, signOut } from "next-auth/react"
 import Image from "next/image";
 
 export default function Home() {
-  // extracting data from usesession as session
   const { data: session } = useSession()
 
-  // checking if sessions exists
   if (session) {
-    // rendering components for logged in users
     return (
       <div className="w-full h-screen flex flex-col justify-center items-center">
         <div className="w-44 h-44 relative mb-4">
@@ -35,8 +30,8 @@ export default function Home() {
           <p className="text-2xl mb-2">Not Signed In</p>
           {/* biome-ignore lint/a11y/useButtonType: <explanation> */}
           <button className="bg-none border-gray-300 border py-2 px-6 rounded-md mb-2" onClick={() => signIn('github')}>Sign in with github</button>
+          {/* biome-ignore lint/a11y/useButtonType: <explanation> */}
+          <button className="bg-none border-gray-300 border py-2 px-6 rounded-md mb-2" onClick={() => signIn('cognito')}>Sign in with cognito</button>
       </div>
     )
-
-
 }
