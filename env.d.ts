@@ -3,6 +3,14 @@ declare namespace NodeJS {
 		NODE_ENV: "development" | "production" | "test";
 		PORT?: string;
 
+		// Next URL 
+		NEXTAUTH_SECRET:string;	
+		NEXTAUTH_URL:string;
+
+		// Github 
+		GITHUB_ID:string 
+		GITHUB_SECRET:string; 
+
 		// Add other environment variables here
 		NEXT_PUBLIC_AWS_COGNITO_ISSUER: string;
 		NEXT_PUBLIC_AWS_COGNITO_REGION: string;
