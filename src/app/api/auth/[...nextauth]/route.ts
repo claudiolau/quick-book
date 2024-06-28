@@ -104,7 +104,7 @@ async function refreshCognitoAccessToken(
 	}
 }
 
-const options: NextAuthOptions = {
+const handler = NextAuth({
 	providers: [
 		GithubProvider({
 			clientId: process.env.GITHUB_ID as string,
@@ -151,8 +151,6 @@ const options: NextAuthOptions = {
 		},
 	},
 	// debug: true, // Enable debug mode
-};
+});
 
-export default NextAuth(options);
-
-export { options as GET, options as POST };
+export { handler as GET, handler as POST };
