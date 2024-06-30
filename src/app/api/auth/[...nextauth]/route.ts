@@ -104,7 +104,8 @@ async function refreshCognitoAccessToken(
 	}
 }
 
-const handler = NextAuth({
+export const authOptions = {
+	secret: process.env.NEXTAUTH_SECRET,
 	providers: [
 		GithubProvider({
 			clientId: process.env.GITHUB_ID as string,
@@ -150,7 +151,21 @@ const handler = NextAuth({
 			return extendedToken;
 		},
 	},
+	pages: {
+		signIn: "/auth/signin",
+		signOut: "/auth/signout",
+		// error: "/auth/error", // Error code passed in query string as ?error=
+		// verifyRequest: "/auth/verify-request", // (used for check email message)
+		// newUser: "/auth/new-user", // New users will be directed here on first sign in (leave the property out if not of interest)
+	},
+	// theme: {
+	// 	colorScheme: "auto", // "auto" | "dark" | "light"
+	// 	brandColor: "", // Hex color code
+	// 	logo: "", // Absolute URL to image
+	// 	buttonText: "", // Hex color code
+	// },
 	// debug: true, // Enable debug mode
-});
+} satisfies NextAuthOptions;
+const handler = NextAuth(authOptions);
 
 export { handler as GET, handler as POST };
