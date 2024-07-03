@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
@@ -157,7 +158,11 @@ export function Dashboard() {
 							<DropdownMenuItem>Settings</DropdownMenuItem>
 							<DropdownMenuItem>Support</DropdownMenuItem>
 							<DropdownMenuSeparator />
-							<DropdownMenuItem>Logout</DropdownMenuItem>
+							<DropdownMenuItem>
+								<Button onClick={() => signOut({ callbackUrl: "/" })}>
+									Logout
+								</Button>
+							</DropdownMenuItem>
 						</DropdownMenuContent>
 					</DropdownMenu>
 				</div>

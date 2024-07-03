@@ -36,7 +36,9 @@ export async function Login() {
 
 									<Button
 										className="w-full"
-										onClick={() => signIn(provider.id)}
+										onClick={() =>
+											signIn(provider.id, { callbackUrl: "/dashboard" })
+										}
 									>
 										Sign in with {provider.name}
 									</Button>
