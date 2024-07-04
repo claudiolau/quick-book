@@ -1,4 +1,10 @@
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import {
+	Card,
+	CardHeader,
+	CardTitle,
+	CardContent,
+	CardDescription,
+} from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { getProviders, signIn } from "next-auth/react";
 import { CenterLayout } from "./template/layout";
@@ -7,18 +13,17 @@ export async function Login() {
 	const providers = await getProviders();
 	return (
 		<CenterLayout>
-			<Card className="w-full max-w-sm">
-				<CardHeader className="mt-2">
-					<CardTitle className=" text-2xl  p-1 m-1 item-center justify-center text-center">
-						QuickBook
-					</CardTitle>
+			<Card className="mx-auto max-w-sm">
+				<CardHeader>
+					<CardTitle className="text-xl">Login</CardTitle>
+					<CardDescription>Enter your information</CardDescription>
 				</CardHeader>
-				<CardContent className="grid gap-4 m-6">
-					<div className="flex flex-col items-center justify-center">
+				<CardContent>
+					<div className="grid gap-4">
 						{providers &&
 							Object.values(providers).map((provider) => (
 								<div
-									className="inline-flex items-center  m-4 pr-4 pl-4  px-3 py-2 border border-neutral-200 dark:border-neutral-700 bg-neutral-50  rounded p-1 text-sm  text-neutral-900 "
+									className="inline-flex items-center  m-4 pr-4 pl-4  px-3 py-2   bg-neutral-50  rounded p-1 text-sm  text-neutral-900 "
 									key={provider.name}
 								>
 									<img
@@ -29,7 +34,12 @@ export async function Login() {
 										width={24}
 									/>
 
-									<Button className="8" onClick={() => signIn(provider.id)}>
+									<Button
+										className="w-full"
+										onClick={() =>
+											signIn(provider.id, { callbackUrl: "/dashboard" })
+										}
+									>
 										Sign in with {provider.name}
 									</Button>
 								</div>
